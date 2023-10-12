@@ -1,0 +1,38 @@
+/* Ajoutez ce CSS dans votre fichier de style */
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.header {
+    font-size: 24px;
+    color: #333;
+    background-color: #ffc107;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+/* Incluez d'autres styles CSS personnalisés selon vos préférences */

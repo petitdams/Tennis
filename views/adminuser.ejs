@@ -1,0 +1,9 @@
+<%- include('header', {class: 'header'}) -%>
+
+<h2 class="header">OK !!! BIENVENUE ADMIN DAMIEN</h2>
+
+<% if (locals.isLogged) { %>
+    <button class="button"><a href="/logout">Déconnexion</a></button>
+<% } %>
+
+<%- include('footer') -%>

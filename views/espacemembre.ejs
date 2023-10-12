@@ -1,0 +1,14 @@
+<%- include('header', {class: 'header'}) -%>
+
+<main class="main-content">
+    <h2 class="header">BIENVENUE MEMBRE DU CLUB !!!!!!!!!!</h2>
+    <p>planning entrainement</p>
+    <p>boutique</p>
+    
+    <% if (locals.isLogged) { %>
+        <button class="button"><a href="/logout">Déconnexion</a></button>
+    <% } %>
+</main>
+
+<%- include('footer') -%>
+
