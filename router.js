@@ -2,13 +2,15 @@ import express from "express";
 import accueil from "./controllers/accueil.js";
 import club from "./controllers/club.js";
 import inscription from "./controllers/inscription.js";
-import contact from "./controllers/contact.js";
+import {contact, envoyerMail} from "./controllers/contact.js";
 import createUser from "./controllers/createuser.js";
 import uservalid from "./controllers/uservalid.js";
 import {loginForm, login} from './controllers/login.js';
 import adminuser from './controllers/adminuser.js';
 import espacemembre from './controllers/espacemembre.js';
 import logout from './controllers/logout.js';
+import deleteUser from './controllers/deleteuser.js';
+import {updateuser, updateUserSubmit}  from './controllers/updateuser.js'
 
 const router = express.Router();
 
@@ -35,15 +37,14 @@ router.get('/contact', contact);
 router.get('/uservalid', uservalid);
 router.get('/espacemembre', espacemembre)
 router.post('/inscription' , createUser);
-// router.delete() ==> route pour supprimer
+router.post('/user/delete', deleteUser) 
 // router.put() ==> route pour mettre à jour (update)
-//router.get( ) ==> route pour afficher
 router.get('/adminuser', adminuser);
 router.post('/login', login);
 router.get('/login', loginForm);
 router.get('/logout', logout);
-
-
-// Autres routes pour d'autres pages
+router.post('/contact', envoyerMail);
+router.get('/user/update/:id', updateuser);
+router.post('/user/update/:id', updateUserSubmit);
 
 export default router;

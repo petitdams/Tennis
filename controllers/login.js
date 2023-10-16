@@ -41,8 +41,9 @@ export function login(req, res) {
                     );
                     return;
                 }
-
+                
                 req.session.isLogged = true;
+                req.session.userId = result[0].id;
 
                 // Conditions basées sur le rôle
                 if (result[0].role === 'admin') {

@@ -1,9 +1,49 @@
 <%- include('header', {class: 'header'}) -%>
 
 <h2 class="header">OK !!! BIENVENUE ADMIN DAMIEN</h2>
-
+   <main>
+<form method='POST' action="/user/delete">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>E-mail</th>
+                            <th>Adresse</th>
+                            <th>Choix Formule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--
+                        <div class="flexContainer>
+                            <p>nom</p>
+                            <p>prenom</p>
+                        </div>
+                        -->
+                        <% for (const user of users) { %>
+                        <tr>
+                            <td><input type="checkbox" name="userToDelete" value="<%= user.id %>"></td>
+                            <td><%= user.lastName %></td>
+                            <td><%= user.firstName %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.adresse %></td>
+                            <td><%= user.choixFormule %></td>
+                            <td><a href="/user/update/<%= user.id %>">Modifier</a></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                 <p>
+                    <button type="submit">Supprimer</button>
+                </p>
+                <p>
+                    <a href="/inscription">Créer un nouveau membre</a>
+                </p>
+            </form>
 <% if (locals.isLogged) { %>
-    <button class="button"><a href="/logout">Déconnexion</a></button>
+    <button><a href="/logout">Déconnexion</a></button>
 <% } %>
+   </main>
 
 <%- include('footer') -%>

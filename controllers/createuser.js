@@ -15,7 +15,6 @@ export default (req, res) => {
     dateDeNaissance:xss(req.body.dateNaissance),
     choixFormule:xss(req.body.formule),
   }
-  
 
 
   // Utilisez bcrypt pour hacher le mot de passe
@@ -36,9 +35,32 @@ export default (req, res) => {
           res.status(500).send('Erreur lors de la requête');
           return;
         }
-        // Redirigez vers la page d'accueil après l'ajout de l'utilisateur
-        // res.redirect('/');
-           res.redirect("/uservalid");
+        
+        if (req.session.userId) {
+          query(
+            'SELECT role FROM User WHERE id= ?',
+              [req.session.userId],
+              (err, roleResult) => {
+                if (err) {
+                  console.error(error);
+                  res.status(500).send('Erreur lors de la requête');
+                  return;
+                }
+                console.log(roleResult);
+                if (roleResult[0].role === 'admin') {
+                  res.redirect ('/adminuser')
+                } else {
+                  // Redirigez vers la page d'accueil après l'ajout de l'utilisateur
+                  // res.redirect('/');
+                  res.redirect("/uservalid");
+                }
+              }
+            );
+          }else {
+            res.redirect("/uservalid");
+          }
+        
+        
       }
     );
   });

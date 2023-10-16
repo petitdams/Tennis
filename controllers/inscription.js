@@ -1,3 +1,6 @@
 export default (req, res) => {
-   res.render("inscription.ejs") 
+     const titreFormulaire = "FORMULAIRE D'INSCRIPTION";
+    const titreCreationCompte = "ET CRÉATION DE COMPTE";
+    
+   res.render("inscription.ejs", {action: '/inscription', update : false, titreFormulaire, titreCreationCompte }) 
 }

@@ -6,7 +6,7 @@ export default (req, res) => {
     
     query(
         `DELETE FROM User WHERE id IN(?)`,
-        userToDelete,
+        [userToDelete],
         (error, result) => {
             if(error) {
                 console.error(error);
@@ -15,7 +15,7 @@ export default (req, res) => {
             }
 
             //on redirige vers la page d'accueil
-            res.redirect('/');
+            res.redirect('/adminuser');
         }
     );
 };
