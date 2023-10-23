@@ -6,14 +6,14 @@ import xss from 'xss';
 export default (req, res) => {
   const id = v4();
   const user = {
-    lastName:xss(req.body.nom),
-    firstName:xss(req.body.prenom),
-    password:(req.body.motDePasse),
-    email:xss(req.body.email),
-    adresse:xss(req.body.adresse),
-    sexe:xss(req.body.sexe),
-    dateDeNaissance:xss(req.body.dateNaissance),
-    choixFormule:xss(req.body.formule),
+    lastName: xss(req.body.nom),
+    firstName: xss(req.body.prenom),
+    password: (req.body.motDePasse),
+    email: xss(req.body.email),
+    adresse: xss(req.body.adresse),
+    sexe: xss(req.body.sexe),
+    dateDeNaissance: xss(req.body.dateNaissance),
+    choixFormule: xss(req.body.formule),
   }
 
 
@@ -27,40 +27,38 @@ export default (req, res) => {
 
     // Insérez l'utilisateur dans la base de données avec le mot de passe haché
     query(
-      'INSERT INTO User (id, lastName, firstName, password, email, adresse, sexe, dateDeNaissance, choixFormule) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [id, user.lastName, user.firstName, hash, user.email, user.adresse, user.sexe, user.dateDeNaissance, user.choixFormule],
+      'INSERT INTO User (id, lastName, firstName, password, email, adresse, sexe, dateDeNaissance, choixFormule) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [id, user.lastName, user.firstName, hash, user.email, user.adresse, user.sexe, user.dateDeNaissance, user.choixFormule],
       (error, result) => {
         if (error) {
           console.error(error);
           res.status(500).send('Erreur lors de la requête');
           return;
         }
-        
+
         if (req.session.userId) {
           query(
-            'SELECT role FROM User WHERE id= ?',
-              [req.session.userId],
-              (err, roleResult) => {
-                if (err) {
-                  console.error(error);
-                  res.status(500).send('Erreur lors de la requête');
-                  return;
-                }
-                console.log(roleResult);
-                if (roleResult[0].role === 'admin') {
-                  res.redirect ('/adminuser')
-                } else {
-                  // Redirigez vers la page d'accueil après l'ajout de l'utilisateur
-                  // res.redirect('/');
-                  res.redirect("/uservalid");
-                }
+            'SELECT role FROM User WHERE id= ?', [req.session.userId],
+            (err, roleResult) => {
+              if (err) {
+                console.error(error);
+                res.status(500).send('Erreur lors de la requête');
+                return;
               }
-            );
-          }else {
-            res.redirect("/uservalid");
-          }
-        
-        
+              if (roleResult[0].role === 'admin') {
+                res.redirect('/adminuser')
+              }
+              else {
+                // Redirigez vers la page d'accueil après l'ajout de l'utilisateur
+                // res.redirect('/');
+                res.redirect("/uservalid");
+              }
+            }
+          );
+        }
+        else {
+          res.redirect("/uservalid");
+        }
+
       }
     );
   });

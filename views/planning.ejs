@@ -1,0 +1,57 @@
+<%- include('header', {class: 'header'}) -%>
+<main>
+  <h2 class="planning-header ">PLANNING !!!</h2>
+    <div class="table-container">
+        <table class="planning-table">
+            <thead>
+                <tr>
+                    <th>LUNDI</th>
+                    <th>MARDI</th>
+                    <th>MERCREDI</th>
+                    <th>JEUDI</th>
+                    <th>VENDREDI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="planning-empty"></td>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Mini Tennis 9h - 10h</td>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Mini Tennis 9h - 10h</td>
+                </tr>
+                <tr>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Adultes 11h - 12h</td>
+                    <td class="planning-event">Galaxie Tennis 11h - 12h</td>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Galaxie Tennis 11h - 12h</td>
+                </tr>
+                <tr>
+                    <td class="planning-event">Adultes 16h - 18h</td>
+                    <td class="planning-event">Adultes 16h - 18h</td>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Adultes 16h - 18h</td>
+                    <td class="planning-event">Adultes 16h - 18h</td>
+                </tr>
+                <tr>
+                    <td class="planning-event">Adultes 19h - 22h</td>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Adultes 19h - 21h</td>
+                    <td class="planning-empty"></td>
+                    <td class="planning-event">Adultes 19h - 21h</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<p>
+    <a class="retour formB"href="/espacemembre">RETOUR</a>
+</p>
+
+<% if (locals.isLogged) { %>
+    <button class="logout-button"><a href="/logout">Déconnexion</a></button>
+<% } %>
+</main>
+
+
+<%- include('footer') -%>

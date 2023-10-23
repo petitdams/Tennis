@@ -44,12 +44,14 @@ export function login(req, res) {
                 
                 req.session.isLogged = true;
                 req.session.userId = result[0].id;
-
+                
                 // Conditions basées sur le rôle
-                if (result[0].role === 'admin') {
+                if (result[0].role === "admin") {
+                    req.session.role = "admin";
                     // Si l'utilisateur a le rôle "admin", le rediriger vers la page "adminuser"
                     res.redirect('/adminuser');
                 } else if (result[0].role === 'membre') {
+                    req.session.role = "membre";
                     // Si l'utilisateur a le rôle "membre", le rediriger vers la page "espacemembre"
                     res.redirect('/espacemembre');
                 } else {

@@ -1,28 +1,11 @@
-
-
-<!--<main>-->
-<!--    <h1>Contactez-nous</h1>-->
-<!--    <form action="/envoyer-email" method="post">-->
-<!--        <label for="nom">Nom :</label>-->
-<!--        <input type="text" id="nom" name="nom" required><br><br>-->
-        
-<!--        <label for="email">Adresse e-mail :</label>-->
-<!--        <input type="email" id="email" name="email" required><br><br>-->
-        
-<!--        <label for="message">Message :</label>-->
-<!--        <textarea id="message" name="message" required></textarea><br><br>-->
-        
-<!--        <input type="submit" value="Envoyer">-->
-<!--    </form>-->
-<!--</main>-->
-
-    <%- include('header') %>
+<%- include('header') %>
     <main>
-
-  <h1>POUR NOUS CONTACTER</h1>
+<div class="contactMail">
+  <h2>POUR NOUS CONTACTER</h2>
   <p>Remplir le formulaire</p>
+ </div>
 
-   <form action="/contact" method="post">
+   <form class="formulaire" action="/contact" method="post">
  <div>
     <label for="firstname">Prenom :</label>
     <input type="text" id="firstname" name="firstname" required />
@@ -41,6 +24,28 @@
  </div>  
     <button type="submit">Envoyer</button>
   </form>
+  
+ <div class="map"> 
+ <h3>ADRESSE :</h3>
+ <p>TcDamS</p>
+   <p>26 rue des clairieres</p>
+   <p>44119 GRANCHAMPS-DES-FONTAINES</p>
+   <h3>Google Maps</h3>
+   
+<iframe
+    frameborder="0"
+    style="border:0"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28038.438921485555!2d-1.6049030535160107!3d47.361708958800484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805f388428f30c3%3A0x233dc8b3469abd3!2s26%20Rue%20des%20clairi%C3%A8res%2C%2044119%20Grandchamp-des-Fontaines!5e0!3m2!1sfr!2sfr!4v1697912264527!5m2!1sfr!2sfr"
+    width="100%"
+    height="300"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+
+
+  
   </main>
 
 

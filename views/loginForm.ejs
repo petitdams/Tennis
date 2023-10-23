@@ -1,9 +1,11 @@
 <%- include('header') -%>
 <main>
+    <div class="h2-container">
     <h2>CONNECTION</h2>
-    <form method="post">
+    </div>
+    <form class="formulaire" method="post">
         <% if (locals.message) { %>
-          <p><%= message %></p>
+          <p class="erreur"><%= message %></p>
         <% } %>
         <p>
     <label for="email">Email</label>

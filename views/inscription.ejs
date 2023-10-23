@@ -1,9 +1,45 @@
 <%- include('header') -%>
 <main>
-  <h2><%= titreFormulaire %></h2>
-<h2><%= titreCreationCompte %></h2>
+ <div class="table-container">
+    <h2>LES FORMULES</h2>
+    <div>
+        <table class="formule-table">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>MINI TENNIS</td>
+                    <td>5 a 7 ans</td>
+                    <td>1H par semaine</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>GALAXIE TENNIS</td>
+                    <td>8 a 15 ans</td>
+                    <td>1H par semaine</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>PACK COMPETITION</td>
+                    <td>Adultes</td>
+                    <td>1H par semaine</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>LOISIR</td>
+                    <td>Pour tous</td>
+                    <td>sur réservation</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+ 
+    <div class="h2-container">
+        <h2><%= titreFormulaire %></h2>
+        <h2><%= titreCreationCompte %></h2>
+    </div>
 
-  <form method="post" action=<%action%>>
+<form class="formulaire" method="post" action=<%action%>>
     <label for="nom">Nom :</label>
     <input type="text" id="nom" name="nom" value="<%= locals.user ? user.lastName : '' %>" required><br>
 
@@ -38,7 +74,7 @@
       <label for="motDePasse">Mot de passe :</label>
       <input type="password" id="motDePasse" name="motDePasse" required><br>
     <% } %>
-    <button type="submit">S'inscrire</button>
+    <button type="submit">VALIDER</button>
   </form>
 </main>
 <%- include('footer') -%>

@@ -1,12 +1,15 @@
 <%- include('header', {class: 'header'}) -%>
 
-<main class="main-content">
+<main>
+    <div class="content">
     <h2 class="header">BIENVENUE MEMBRE DU CLUB !!!!!!!!!!</h2>
-    <p>planning entrainement</p>
-    <p>boutique</p>
-    
+     <a href="/planning" class="custom-link">PLANNING</a>
+<a href="/commande" class="custom-link">BOUTIQUE</a>
+<a href="https://tenup.fft.fr/" class="custom-link" target="_blank">RESERVER COURT</a>
+
+    </div>
     <% if (locals.isLogged) { %>
-        <button class="button"><a href="/logout">Déconnexion</a></button>
+        <button class="logout-button"><a href="/logout">Déconnexion</a></button>
     <% } %>
 </main>
 
