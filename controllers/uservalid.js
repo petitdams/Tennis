@@ -1,3 +1,3 @@
 export default (req, res) => {
-   res.render("uservalid.ejs") 
+    res.render("uservalid.ejs")
 }

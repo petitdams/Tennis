@@ -20,7 +20,7 @@ export default (req, res) => {
           quantite: xss(req.body.quantite[index]),
         }
         return new Promise((resolve, reject) => {
-          const idProduitCommande= v4();
+          const idProduitCommande = v4();
           query(
             `INSERT INTO ProduitCommande (id, produitId, taille, quantite, prix, commandeId) 
 SELECT ?, Produit.id, ?, ?, Produit.prix, ? 
@@ -46,5 +46,3 @@ WHERE id = ?`, [idProduitCommande, produit.taille, produit.quantite, idCommande,
     }
   )
 };
-
-

@@ -26,7 +26,7 @@ export function updateCommande(req, res) {
             // on appelle le template inscription en lui passant les informations concernant le user
             res.render('modifCommande.ejs', {
                 action: `/commande/update/${id}`,
-                produitCommande : results[0] 
+                produitCommande: results[0]
             });
         }
     );
@@ -37,10 +37,10 @@ export function updateCommandeSubmit(req, res) {
 
     query(`UPDATE ProduitCommande SET taille = ?,
                                    quantite = ?
-            WHERE id = ?`,
-        [xss(req.body.taille), 
-        xss(req.body.quantite), 
-        idProduitCommande],
+            WHERE id = ?`, [xss(req.body.taille),
+            xss(req.body.quantite),
+            idProduitCommande
+        ],
         (error, result) => {
             if (error) {
                 console.error(error);

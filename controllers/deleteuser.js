@@ -3,12 +3,11 @@ import query from '../database.js';
 /****SUPPRESSION DE USER */
 export default (req, res) => {
     const userToDelete = req.body.userToDelete;
-    
+
     query(
-        `DELETE FROM User WHERE id IN(?)`,
-        [userToDelete],
+        `DELETE FROM User WHERE id IN(?)`, [userToDelete],
         (error, result) => {
-            if(error) {
+            if (error) {
                 console.error(error);
                 res.status(500).send('Erreur lors de la requete');
                 return;

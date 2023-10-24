@@ -37,33 +37,32 @@ export function updateuser(req, res) {
 
 export function updateUserSubmit(req, res) {
     let id = req.params.id;
-   
-        query(`UPDATE User SET lastName = ?,
+
+    query(`UPDATE User SET lastName = ?,
                                firstName = ?,
                                email = ?,
                                adresse = ?,
                                sexe = ?,
                                dateDeNaissance = ?,
                                choixFormule = ?
-            WHERE id = ?`,
-            [   xss(req.body.nom),
-                xss(req.body.prenom),
-                xss(req.body.email),
-                xss(req.body.adresse),
-                xss(req.body.sexe),
-                xss(req.body.dateNaissance),
-                xss(req.body.formule),
-                id
-                ],
-            (error, result) => {
-                if (error) {
-                    console.error(error);
-                    res.status(500).send('Erreur lors de la requete');
-                    return;
-                }
-                //on redirige vers la page admin
-                res.redirect('/adminuser');
+            WHERE id = ?`, [xss(req.body.nom),
+            xss(req.body.prenom),
+            xss(req.body.email),
+            xss(req.body.adresse),
+            xss(req.body.sexe),
+            xss(req.body.dateNaissance),
+            xss(req.body.formule),
+            id
+        ],
+        (error, result) => {
+            if (error) {
+                console.error(error);
+                res.status(500).send('Erreur lors de la requete');
+                return;
             }
-        );
+            //on redirige vers la page admin
+            res.redirect('/adminuser');
+        }
+    );
 
-    };
+};

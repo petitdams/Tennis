@@ -1,54 +1,47 @@
 <%- include('header', { class: 'header' }) -%>
 
-<main class="admin-page">
+   <div class="admin-page">
     <h2 class="admin-welcome">GESTION DES MEMBRES DU CLUB</h2>
+    <div class="js-user-list">
+        <form method='POST' action="/user/delete" class="user-form">
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="user-column">Nom</th>
+                        <th class="user-column">Prénom</th>
+                        <th class="user-column">E-mail</th>
+                        <th class="user-column">Adresse</th>
+                        <th class="user-column">Choix Formule</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (const user of users) { %>
+                        <tr>
+                            <td><input class="js-user-to-delete user-checkbox" type="checkbox" name="userToDelete" value="<%= user.id %>"></td>
+                            <td><%= user.lastName %></td>
+                            <td><%= user.firstName %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.adresse %></td>
+                            <td><%= user.choixFormule %></td>
+                            <td><a href="/user/update/<%= user.id %>" class="user-action">Modifier</a></td>
+                            <td><a href="/pageCommande/user/<%= user.id %>" class="user-action">Accès commandes</a></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <p>
+                <button type="submit" class="delete-button">Supprimer les utilisateurs sélectionnés</button>
+            </p>
+            <p class="link-container">
+                <a href="/inscription">Créer un nouveau membre</a>
+            </p>
+        </form>
+        <button class="logout-button" onclick="window.location.href='/logout'">Déconnexion</button>
+    </div>
+</div>
 
-    <form method='POST' action="/user/delete" class="user-form">
-        <table class="user-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th class="user-column">Nom</th>
-                    <th class="user-column">Prénom</th>
-                    <th class="user-column">E-mail</th>
-                    <th class="user-column">Adresse</th>
-                    <th class="user-column">Choix Formule</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--
-                <div class="flexContainer">
-                    <p>nom</p>
-                    <p>prenom</p>
-                </div>
-                -->
-                <% for (const user of users) { %>
-                <tr>
-                    <td><input type="checkbox" name="userToDelete" value="<%= user.id %>" class="user-checkbox"></td>
-                    <td><%= user.lastName %></td>
-                    <td><%= user.firstName %></td>
-                    <td><%= user.email %></td>
-                    <td><%= user.adresse %></td>
-                    <td><%= user.choixFormule %></td>
-                    <td><a href="/user/update/<%= user.id %>" class="user-action">Modifier</a></td>
-                    <td><a href="/pageCommande/user/<%= user.id %>" class="user-action">Acces commandes</a></td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
 
-        <p>
-            <button type="submit" class="delete-button">Supprimer</button>
-        </p>
-        <p class="link-container">
-            <a href="/inscription">Créer un nouveau membre</a>
-        </p>
-            </form>
-        
-<% if (locals.isLogged) { %>
-    <button class="logout-button"><a href="/logout">Déconnexion</a></button>
-<% } %>
-
-   </main>
-
-<%- include('footer') -%>
+    <%- include('footer') -%>

@@ -56,7 +56,7 @@ export default (req, res) => {
           );
         }
         else {
-          res.redirect("/uservalid");
+          res.redirect("/formConfirm");
         }
 
       }

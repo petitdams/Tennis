@@ -1,23 +1,28 @@
 <%- include('header') -%>
-<main>
-    <div class="h2-container">
-    <h2>CONNECTION</h2>
+
+    <div class="connection">
+        <div class="h2-container">
+            <h2>CONNECTION</h2>
+        </div>
+        <form class="formulaire" method="post">
+            <% if (locals.message) { %>
+                <p class="erreur">
+                    <%= message %>
+                </p>
+                <% } %>
+                    <p>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </p>
+                    <p>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </p>
+                    <p>
+                        <button type="submit">Connecter</button>
+                    </p>
+        </form>
     </div>
-    <form class="formulaire" method="post">
-        <% if (locals.message) { %>
-          <p class="erreur"><%= message %></p>
-        <% } %>
-        <p>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required />
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" />   
-        </p>
-        <p>
-            <button type="submit">Connecter</button>
-        </p>
-    </form>
-</main>
-<%- include('footer') -%>
+
+    <%- include('footer') -%>
+

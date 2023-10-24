@@ -11,16 +11,15 @@ export default (req, res) => {
                 INNER JOIN ProduitCommande as PC ON C.id = PC.commandeId
                 INNER JOIN Produit as P ON PC.produitId = P.id
                 INNER JOIN User as U ON U.id = C.userId
-          WHERE C.userId = ?`,
-        [idUser],
+          WHERE C.userId = ?`, [idUser],
         (error, commandes) => {
-            if(error) {
+            if (error) {
                 console.error(error);
                 res.status(500).send('Erreur lors de la requete');
                 return;
             }
             console.log(commandes);
-            res.render('pageCommande',{commandes});
+            res.render('pageCommande', { commandes });
         }
     );
 };

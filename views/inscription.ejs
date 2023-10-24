@@ -1,80 +1,86 @@
 <%- include('header') -%>
-<main>
- <div class="table-container">
-    <h2>LES FORMULES</h2>
-    <div>
-        <table class="formule-table">
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>MINI TENNIS</td>
-                    <td>5 a 7 ans</td>
-                    <td>1H par semaine</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>GALAXIE TENNIS</td>
-                    <td>8 a 15 ans</td>
-                    <td>1H par semaine</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>PACK COMPETITION</td>
-                    <td>Adultes</td>
-                    <td>1H par semaine</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>LOISIR</td>
-                    <td>Pour tous</td>
-                    <td>sur réservation</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
- 
-    <div class="h2-container">
-        <h2><%= titreFormulaire %></h2>
-        <h2><%= titreCreationCompte %></h2>
-    </div>
 
-<form class="formulaire" method="post" action=<%action%>>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" value="<%= locals.user ? user.lastName : '' %>" required><br>
+        <div class="table-container">
+            <h2>LES FORMULES</h2>
+            <div>
+                <table class="formule-table">
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>MINI TENNIS 120€</td>
+                            <td>5 a 7 ans</td>
+                            <td>1H par semaine</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>GALAXIE TENNIS 140€</td>
+                            <td>8 a 15 ans</td>
+                            <td>1H par semaine</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>PACK COMPETITION 200€</td>
+                            <td>Adultes</td>
+                            <td>1H par semaine</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>LOISIR 100 €</td>
+                            <td>Pour tous</td>
+                            <td>sur réservation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <label for="prenom">Prénom :</label>
-    <input type="text" id="prenom" name="prenom" value="<%= locals.user ? user.firstName : '' %>"required><br>
+        <div class="h2-container">
+            <h2>
+                <%= titreFormulaire %>
+            </h2>
+            <h2>
+                <%= titreCreationCompte %>
+            </h2>
+        </div>
 
-    <label for="dateNaissance">Date de naissance :</label>
-    <input type="date" id="dateNaissance" name="dateNaissance" value="<%= locals.user ? user.dateDeNaissance : '' %>"required><br>
+        <form class="formulaire" method="post" action="<%= action %>">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" value="<%= locals.user ? user.lastName : '' %>" required><br>
 
-   <label>Sexe :</label>
-   <input type="radio" id="homme" name="sexe" value="h" <%= locals.user && user.sexe === "h" ? 'checked' : '' %> required>
-   <label for="homme">Homme</label>
-   <input type="radio" id="femme" name="sexe" value="f" <%= locals.user && user.sexe === "f" ? 'checked' : '' %> required>
-   <label for="femme">Femme</label><br>
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" value="<%= locals.user ? user.firstName : '' %>" required><br>
+
+            <label for="dateNaissance">Date de naissance :</label>
+            <input type="date" id="dateNaissance" name="dateNaissance" value="<%= locals.user ? user.dateDeNaissance : '' %>" required><br>
+
+            <label>Sexe :</label>
+            <input type="radio" id="homme" name="sexe" value="h" <%=locals.user && user.sexe==="h" ? 'checked' : '' %> required>
+            <label for="homme">Homme</label>
+            <input type="radio" id="femme" name="sexe" value="f" <%=locals.user && user.sexe==="f" ? 'checked' : '' %> required>
+            <label for="femme">Femme</label><br>
 
 
-    <label for="adresse">Adresse :</label>
-    <input type="text" id="adresse" name="adresse" value="<%= locals.user ? user.adresse : '' %>" required><br>
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" value="<%= locals.user ? user.adresse : '' %>" required><br>
 
-    <label for="email">E-mail :</label>
-    <input type="email" id="email" name="email"  value="<%= locals.user ? user.email : '' %>"required><br>
+            <label for="email">E-mail :</label>
+            <input type="email" id="email" name="email" value="<%= locals.user ? user.email : '' %>" required><br>
 
-    <label>Choix de formule :</label>
-    <select id="formule" name="formule" required>
-      <option value="1" <%= locals.user && user.choixFormule == "1" ? "selected" : '' %>>Formule 1</option>
-      <option value="2" <%= locals.user && user.choixFormule == "2" ? "selected" : '' %>>Formule 2</option>
-      <option value="3" <%= locals.user && user.choixFormule == "3" ? "selected" : '' %>>Formule 3</option>
-      <option value="4" <%= locals.user && user.choixFormule == "4" ? "selected" : '' %>>Formule 4</option>
-    </select><br>
+         <label>Choix de formule :</label>
+<select id="formule" name="formule" required>
+    <option value="" disabled selected>Choisissez une formule</option>
+    <option value="1" <%= locals.user && user.choixFormule == "1" ? "selected" : '' %>>Formule 1</option>
+    <option value="2" <%= locals.user && user.choixFormule == "2" ? "selected" : '' %>>Formule 2</option>
+    <option value="3" <%= locals.user && user.choixFormule == "3" ? "selected" : '' %>>Formule 3</option>
+    <option value="4" <%= locals.user && user.choixFormule == "4" ? "selected" : '' %>>Formule 4</option>
+</select><br>
+
+
+            <% if (!update) { %>
+                <label for="motDePasse">Mot de passe :</label>
+                <input type="password" id="motDePasse" name="motDePasse" required><br>
+                <% } %>
+                    <button type="submit">VALIDER</button>
+        </form>
     
-    <% if (!update) { %>
-      <label for="motDePasse">Mot de passe :</label>
-      <input type="password" id="motDePasse" name="motDePasse" required><br>
-    <% } %>
-    <button type="submit">VALIDER</button>
-  </form>
-</main>
-<%- include('footer') -%>
+    <%- include('footer') -%>

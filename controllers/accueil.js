@@ -1,3 +1,3 @@
 export default (req, res) => {
-   res.render("accueil.ejs") 
+    res.render("accueil.ejs")
 }

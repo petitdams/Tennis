@@ -1,3 +1,3 @@
 export default (req, res) => {
-   res.render("club.ejs") 
+    res.render("club.ejs")
 }

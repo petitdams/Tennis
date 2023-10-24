@@ -1,83 +1,81 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>ClubTennis</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Molle&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/images/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Mali&family=Molle&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-        <meta name="msapplication-TileColor" content="#da532c">
-        
-        <meta name="theme-color" content="#ffffff">
-    </head>
-</html>
+<html lang="fr">
+
+<head>
+    <title>TcDamS</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Bienvenue au Club de Tennis TcDamS. Découvrez un environnement dynamique pour tous les amateurs de tennis. Nos installations modernes, notre coach et nos événements passionnants vous offrent l'opportunité de perfectionner votre jeu, de socialiser et de profiter de votre passion pour le tennis. Rejoignez notre club dès aujourd'hui !">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Molle&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali&family=Molle&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
 
 <body>
     <header>
         <div class="header">
             <h1 class="logDams">TC DamS</h1>
             <a href="/">
-            <img src="/images/logoclubTennis.png" alt="Logo Club"></img>
-            </a>
+           <img src="/images/logoclubTennis.png" alt="Logo Club">
+           </a>
             <p class="mali">BIENVENUE AU CLUB DE TENNIS</p>
         </div>
-        
+
         <div class="recBlanc"></div>
         <div id="menu">
-  <div id="menu-bar" onclick="menuOnClick()">
-    <div id="bar1" class="bar"></div>
-    <div id="bar2" class="bar"></div>
-    <div id="bar3" class="bar"></div>
-  </div>
-          <div class="divNavPc">
-             <nav class="nav navPc" id="nav">
-                 <ul>
-                     <% 
+            <div id="menu-bar" onclick="menuOnClick()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <div class="divNavPc">
+                <nav class="nav navPc" id="nav">
+                    <ul>
+                        <% 
                      if (locals.isLogged === true && locals.role === "admin") { %>
-                     <li>
-                        <a href="/adminuser">ADMIN</a>
-                    </li>
-                     <% } else if (locals.isLogged  === true ){ %>
-                     <li>
-                        <a href="/espacemembre">MON ESPACE</a>
-                    </li>
-                     <% } %>
-                     <li>
-                        <a href="/">ACCUEIL</a>
-                    </li>
-                     <li>
-                        <a href="/club">CLUB</a>
-                    </li>
-                    <li>
-                        <a href="/contact">CONTACT</a></li>
-                   
-                   
-                  <% if (locals.isLogged === true) { %>
-                    <li>
-                        <a href="/logout">DECONNEXION</a></li>
-                  <% } else { %>
-                    <li><a href="/login">CONNEXION</a></li>
-                    <li><a href="/inscription">INSCRIPTION</a></li>
-                    <% } %>
-                </ul>
-              </nav>
+                            <li>
+                                <a href="/adminuser" class="nav-link">ADMIN</a>
+                            </li>
+                            <% } else if (locals.isLogged  === true ){ %>
+                                <li>
+                                    <a href="/espacemembre" class="nav-link">MON ESPACE</a>
+                                </li>
+                                <% } %>
+                                    <li>
+                                        <a href="/" class="nav-link">ACCUEIL</a>
+                                    </li>
+                                    <li>
+                                        <a href="/club" class="nav-link">CLUB</a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact" class="nav-link">CONTACT</a></li>
+
+
+                                    <% if (locals.isLogged === true) { %>
+                                        <li>
+                                            <a href="/logout">DECONNEXION</a></li>
+                                        <% } else { %>
+                                            <li><a href="/login" class="nav-link">CONNEXION</a></li>
+                                            <li><a href="/inscription" class="nav-link">INSCRIPTION</a></li>
+                                            <% } %>
+                    </ul>
+                </nav>
+            </div>
         </div>
-</div>
-<div class="menu-bg" id="menu-bg"></div>
-        </div>
+        <div class="menu-bg" id="menu-bg"></div>
     </header>
     <main>
