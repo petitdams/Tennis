@@ -1,23 +1,25 @@
 <%- include('header', {class: 'header'}) -%>
 
 
-        <% console.log(produits) %>
+    <% console.log(produits) %>
 
 
+        <section class="vetement">
             <h3 class="boutique-header">BOUTIQUE DU CLUB !!!</h3>
+            <article class="vet-sport">
+                <h4>Tee-shirt</h4>
+                <img class="vetement-image" src="/images/boutique1.jpg" alt="tee-shirt">
+                <p class="vetement-prix">Prix: 15€</p>
+            </article>
+            <article class="vet-sport">
+                <h4>Veste</h4>
+                <img class="vetement-image" src="/images/boutique2.jpg" alt="veste">
+                <p class="vetement-prix">Prix: 20€</p>
+            </article>
+        </section>
 
-            <div class="vetement">
-                <div>
-                    <img class="vetement-image" src="/images/boutique1.jpg" alt="tee-shirt">
-                    <p class="vetement-prix">Prix: 15€</p>
-                </div>
-                <div>
-                    <img class="vetement-image" src="/images/boutique2.jpg" alt="veste">
-                    <p class="vetement-prix">Prix: 20€</p>
-                </div>
-            </div>
 
-
+        <section>
             <h3 class="boutique-header">PASSER COMMANDE !!!</h3>
 
             <form class="formulaire formA" method="post" action="/commande">
@@ -50,15 +52,17 @@
 
                 <button type="submit">Passer la commande</button>
             </form>
+        </section>
 
-            <p>
-                <a class="retour formB" href="/espacemembre">RETOUR</a><br>
-            </p>
-
-
-            <% if (locals.isLogged) { %>
-               <button class="logout-button" onclick="window.location.href='/logout'">Déconnexion</button>
-                <% } %>
+        <p>
+            <a class="retour formB" href="/espacemembre">RETOUR</a><br>
+        </p>
 
 
-    <%- include('footer') -%>
+        <% if (locals.isLogged) { %>
+            <button class="logout-button" onclick="window.location.href='/logout'">Déconnexion</button>
+            <% } %>
+
+
+                <%- include('footer') -%>
+ 

@@ -1,9 +1,8 @@
 <%- include('header') -%>
 
-        <div class="table-container">
-            <h2>LES FORMULES</h2>
-            <div>
-                <table class="formule-table">
+        <section class="table-container">
+             <h2>LES FORMULES</h2>
+           <table class="formule-table">
                     <tbody>
                         <tr>
                             <td>1</td>
@@ -31,17 +30,16 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
+        </section>
 
-        <div class="h2-container">
+        <section class="h2-container">
             <h2>
                 <%= titreFormulaire %>
             </h2>
             <h2>
                 <%= titreCreationCompte %>
             </h2>
-        </div>
+        </section>
 
         <form class="formulaire" method="post" action="<%= action %>">
             <label for="nom">Nom :</label>
@@ -65,15 +63,16 @@
 
             <label for="email">E-mail :</label>
             <input type="email" id="email" name="email" value="<%= locals.user ? user.email : '' %>" required><br>
-
-         <label>Choix de formule :</label>
-<select id="formule" name="formule" required>
-    <option value="" disabled selected>Choisissez une formule</option>
-    <option value="1" <%= locals.user && user.choixFormule == "1" ? "selected" : '' %>>Formule 1</option>
-    <option value="2" <%= locals.user && user.choixFormule == "2" ? "selected" : '' %>>Formule 2</option>
-    <option value="3" <%= locals.user && user.choixFormule == "3" ? "selected" : '' %>>Formule 3</option>
-    <option value="4" <%= locals.user && user.choixFormule == "4" ? "selected" : '' %>>Formule 4</option>
-</select><br>
+            
+            
+        <label>Choix de formule :</label>
+        <select id="formule" name="formule" required>
+            <option value="" disabled>Choisissez une formule</option>
+            <option value="1" <%= locals.user && user.choixFormule == "1" ? "selected" : '' %>>Formule 1</option>
+            <option value="2" <%= locals.user && user.choixFormule == "2" ? "selected" : '' %>>Formule 2</option>
+            <option value="3" <%= locals.user && user.choixFormule == "3" ? "selected" : '' %>>Formule 3</option>
+            <option value="4" <%= locals.user && user.choixFormule == "4" ? "selected" : '' %>>Formule 4</option>
+        </select><br>
 
 
             <% if (!update) { %>

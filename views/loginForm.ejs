@@ -1,10 +1,11 @@
 <%- include('header') -%>
 
-    <div class="connection">
+    <section class="connection">
         <div class="h2-container">
-            <h2>CONNECTION</h2>
+            <h2>CONNEXION</h2>
         </div>
-        <form class="formulaire" method="post">
+       
+       <form class="formulaire" method="post">
             <% if (locals.message) { %>
                 <p class="erreur">
                     <%= message %>
@@ -22,7 +23,7 @@
                         <button type="submit">Connecter</button>
                     </p>
         </form>
-    </div>
+    </section>
 
     <%- include('footer') -%>
 

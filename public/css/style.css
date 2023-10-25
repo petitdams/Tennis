@@ -90,6 +90,10 @@ footer {
     text-align: center;
 }
 
+footer h2 {
+    font-family: 'Pacifico', cursive;
+}
+
 .footTennis {
     background-image: url(https://img3.wallspic.com/crops/8/1/6/8/3/138618/138618-lumiere-feuille-eclairage-eau-ciel-3840x2160.jpg);
     background-size: cover;
@@ -616,24 +620,28 @@ footer {
 
 .vetement {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin: 20px;
-    padding: 10px;
     background-color: #f0f0f0;
     border: 2px solid #06492d;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.vetement div {
+.vetement {
     text-align: center;
-    padding: 20px;
 }
 
+.vet-sport {
+    padding: 10px;
+}
+
+
 .vetement img {
-    width: 100px;
-    height: 120px;
+    width: 140px;
+    height: 160px;
     border: 2px solid #b06835;
     border-radius: 5px;
 }
@@ -787,7 +795,7 @@ footer {
 }
 
 
-/**********FORMAT BUREAU**********/
+/********************FORMAT BUREAU********************/
 
 @media screen and (min-width: 960px) {
     .slider-item {
@@ -1009,9 +1017,19 @@ footer {
         height: 230px;
         width: 200px;
     }
+    .vet-sport {
+        margin-left: 120px;
+        margin-right: 120px;
+        display: inline-block;
+    }
 
-    .boutique-header {
-        margin-top: 70px;
+    .vetement {
+        display: block;
+        margin-top: 100px;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-bottom: 40px;
+        padding: none;
     }
 
     .formB {
@@ -1021,9 +1039,12 @@ footer {
 
     /*PAGE CLUB*/
     .theme-section {
-        display: flex;
-        justify-content: center;
         padding: 30px;
+    }
+
+    .sport {
+        padding: 10px;
+        display: inline-block;
     }
 
     .theme-court1 {
@@ -1045,6 +1066,7 @@ footer {
     .theme-image {
         width: 430px;
         height: 320px;
+        margin: 30px;
     }
 
     .theme-club {
@@ -1144,10 +1166,19 @@ footer {
 
     .mapText {
         text-align: left;
-        margin-left: 130px;
+        margin-left: 140px;
     }
 
     /*PAGE LOGIN*/
     .connection {
         padding: 55px;
+    }
+
+    /*PAGE PLANNING*/
+    .table-container {
+        margin-right: 40px;
+        margin-top: 70px;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        padding: 40px;
     }

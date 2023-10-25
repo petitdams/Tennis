@@ -1,8 +1,7 @@
 <%- include('header', { class: 'header' }) -%>
 
-   <div class="admin-page">
+   <section class="admin-page js-user-list">
     <h2 class="admin-welcome">GESTION DES MEMBRES DU CLUB</h2>
-    <div class="js-user-list">
         <form method='POST' action="/user/delete" class="user-form">
             <table class="user-table">
                 <thead>
@@ -40,8 +39,7 @@
             </p>
         </form>
         <button class="logout-button" onclick="window.location.href='/logout'">Déconnexion</button>
-    </div>
-</div>
+</section>
 
 
     <%- include('footer') -%>
